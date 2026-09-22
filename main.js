@@ -1,8 +1,6 @@
 // Живые статуи Калуга: появление блоков, нижняя панель на телефоне, просмотр фото.
 document.documentElement.classList.add("js");
 
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
 // блоки проявляются при прокрутке
 const io = new IntersectionObserver((entries) => {
   for (const e of entries) {
@@ -10,10 +8,6 @@ const io = new IntersectionObserver((entries) => {
   }
 }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-// видео: при «уменьшить движение» не крутим, показываем постер
-const video = document.querySelector(".hero-video");
-if (video && reduce) { video.removeAttribute("autoplay"); video.pause(); }
 
 // нижняя панель с кнопками появляется, когда кнопки первого экрана ушли из вида
 const dock = document.getElementById("dock");
