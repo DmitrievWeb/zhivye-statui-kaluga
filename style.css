@@ -201,9 +201,10 @@ p { margin: 0; }
 
 /* ---------- планшет и шире ---------- */
 @media (min-width: 720px) {
-  .photos { grid-template-columns: 1.3fr 1fr 1fr; gap: 16px; }
-  .shot:first-child { grid-column: auto; grid-row: span 2; }
-  .shot:first-child img { aspect-ratio: auto; }
+  .photos { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .shot img { aspect-ratio: 4 / 5; }
+  .shot:first-child { grid-column: span 2; grid-row: span 2; position: relative; }
+  .shot:first-child img { position: absolute; inset: 0; aspect-ratio: auto; }
   .occ-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
   .fmt-grid { grid-template-columns: 1fr 1fr; }
 }
